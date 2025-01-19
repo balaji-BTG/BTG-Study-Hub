@@ -8,24 +8,27 @@
 </head>
 <body>
   <header>
-    <h1>BTG StudyHub</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#upload">Add Question Papers</a></li>
-        <li><a href="#help">Help Center</a></li>
-        <li><a href="https://t.me/Balu_TG8" target="_blank">Telegram</a></li>
-      </ul>
-    </nav>
+    <div class="top-bar">
+      <h1>BTG StudyHub</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#upload">Add Papers</a></li>
+          <li><a href="#help">Help</a></li>
+          <li><a href="https://t.me/Balu_TG8" target="_blank">Telegram</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="countdown" class="countdown"></div>
   </header>
+
   <main>
-    <!-- Countdown Section -->
-    <section id="home">
-      <h2>Days Left for Exams</h2>
-      <div id="countdown"></div>
+    <!-- Search Bar -->
+    <section id="search-section">
+      <input type="text" id="search-bar" placeholder="Search question papers...">
     </section>
 
-    <!-- Upload Section -->
+    <!-- Add Question Papers -->
     <section id="upload">
       <h2>Add Question Papers</h2>
       <form id="upload-form">
@@ -50,16 +53,16 @@
       </form>
     </section>
 
-    <!-- Search and View Section -->
+    <!-- View Uploaded Papers -->
     <section id="view">
-      <h2>Search Uploaded Question Papers</h2>
-      <input type="text" id="search-bar" placeholder="Search by title or subject...">
+      <h2>Uploaded Question Papers</h2>
       <ul id="uploaded-papers"></ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 BTG StudyHub. All Rights Reserved.</p>
+    <p>&copy; 202
+      5 BTG StudyHub. All Rights Reserved.</p>
   </footer>
   <script src="script.js"></script>
 </body>
