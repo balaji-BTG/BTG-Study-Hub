@@ -79,3 +79,36 @@
   </div>
   <button id="add-paper-btn">➕ Add New Question Paper</button>
   </section>
+<section id="question-papers">
+  <h2>📄 Uploaded Question Papers</h2>
+  <div id="papers-container">
+    <!-- Dynamically added question papers will appear here -->
+  </div>
+  <button id="add-paper-btn">➕ Add New Question Paper</button>
+
+  <!-- Hidden Form for Adding New Question Papers -->
+  <div id="add-paper-form" class="hidden">
+    <h3>Add a New Question Paper</h3>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="Maths 1A">Maths 1A</option>
+        <option value="Maths 1B">Maths 1B</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Telugu">Telugu</option>
+        <option value="English">English</option>
+        <option value="Sanskrit">Sanskrit</option>
+      </select>
+
+      <label for="year">Year:</label>
+      <input type="text" id="year" name="year" placeholder="Enter Year" required />
+
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file" accept=".pdf" required />
+
+      <button type="submit">Upload</button>
+      <button type="button" id="cancel-btn">Cancel</button>
+    </form>
+  </div>
+                     </section>
