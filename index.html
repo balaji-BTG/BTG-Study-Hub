@@ -3,112 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BTG Study Hub</title>
+  <title>Intermediate Study Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <h1>BTG Study Hub</h1>
-      <p id="days-counter">Days Left for Exam: </p>
-    </div>
+    <h1>📘 Intermediate Study Hub</h1>
   </header>
 
   <nav>
     <ul>
-      <li><a href="#important-papers">📚 Important Papers</a></li>
-      <li><a href="#qna">📝 Q&A</a></li>
-      <li><a href="#last-5-years">📖 Last 5 Years’ Papers</a></li>
-      <li><a href="#subjects">📘 Subjects</a></li>
-      <li><a href="#qr-codes">🔗 QR Codes</a></li>
-      <li><a href="#help-center">🤝 Help Center</a></li>
+      <li><a href="#countdown">Countdown</a></li>
+      <li><a href="#question-papers">Question Papers</a></li>
     </ul>
   </nav>
 
-  <main>
-    <section id="important-papers">
-      <h2>📚 Important Question Papers</h2>
-      <p>Download key question papers for all subjects.</p>
-    </section>
+  <section id="countdown">
+    <h2>⏳ Time Left for Exams</h2>
+    <div id="timer">
+      <span id="days">0</span> Days
+      <span id="hours">0</span> Hours
+      <span id="minutes">0</span> Minutes
+      <span id="seconds">0</span> Seconds
+    </div>
+  </section>
 
-    <section id="qna">
-      <h2>📝 Important Questions & Answers</h2>
-      <p>Get answers to frequently asked questions.</p>
-    </section>
+  <section id="question-papers">
+    <h2>📄 Uploaded Question Papers</h2>
+    <div id="papers-container">
+      <!-- JavaScript will dynamically add question papers here -->
+    </div>
+    <button id="add-paper-btn">➕ Add New Question Paper</button>
 
-    <section id="last-5-years">
-      <h2>📖 Last 5 Years’ Question Papers</h2>
-      <p>Access previous question papers to excel in exams.</p>
-    </section>
+    <!-- Hidden Form for Adding New Question Papers -->
+    <div id="add-paper-form" class="hidden">
+      <h3>Add a New Question Paper</h3>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <label for="subject">Subject:</label>
+        <select id="subject" name="subject" required>
+          <option value="Maths 1A">Maths 1A</option>
+          <option value="Maths 1B">Maths 1B</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Telugu">Telugu</option>
+          <option value="English">English</option>
+          <option value="Sanskrit">Sanskrit</option>
+        </select>
 
-    <section id="subjects">
-      <h2>📘 Subjects</h2>
-      <ul>
-        <li>Maths 1A</li>
-        <li>Maths 1B</li>
-        <li>Physics</li>
-        <li>Chemistry</li>
-        <li>Telugu</li>
-        <li>English</li>
-      </ul>
-    </section>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" placeholder="Enter Year" required />
 
-    <section id="qr-codes">
-      <h2>🔗 QR Codes</h2>
-      <p>Scan these QR codes for quick access to resources.</p>
-      <div id="qr-container"></div>
-    </section>
+        <label for="file">Upload File:</label>
+        <input type="file" id="file" name="file" accept=".pdf" required />
 
-    <section id="help-center">
-      <h2>🤝 Help Center</h2>
-      <p>Contact us on <a href="https://t.me/yourtelegramchannel" target="_blank">Telegram</a>.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 BTG Study Hub | All Rights Reserved</p>
-  </footer>
+        <button type="submit">Upload</button>
+        <button type="button" id="cancel-btn">Cancel</button>
+      </form>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
 </html>
-<section id="question-papers">
-  <h2>📄 Uploaded Question Papers</h2>
-  <div id="papers-container">
-    <!-- JavaScript will dynamically add question papers here -->
-  </div>
-  <button id="add-paper-btn">➕ Add New Question Paper</button>
-  </section>
-<section id="question-papers">
-  <h2>📄 Uploaded Question Papers</h2>
-  <div id="papers-container">
-    <!-- Dynamically added question papers will appear here -->
-  </div>
-  <button id="add-paper-btn">➕ Add New Question Paper</button>
-
-  <!-- Hidden Form for Adding New Question Papers -->
-  <div id="add-paper-form" class="hidden">
-    <h3>Add a New Question Paper</h3>
-    <form id="uploadForm" enctype="multipart/form-data">
-      <label for="subject">Subject:</label>
-      <select id="subject" name="subject" required>
-        <option value="Maths 1A">Maths 1A</option>
-        <option value="Maths 1B">Maths 1B</option>
-        <option value="Physics">Physics</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Telugu">Telugu</option>
-        <option value="English">English</option>
-        <option value="Sanskrit">Sanskrit</option>
-      </select>
-
-      <label for="year">Year:</label>
-      <input type="text" id="year" name="year" placeholder="Enter Year" required />
-
-      <label for="file">Upload File:</label>
-      <input type="file" id="file" name="file" accept=".pdf" required />
-
-      <button type="submit">Upload</button>
-      <button type="button" id="cancel-btn">Cancel</button>
-    </form>
-  </div>
-                     </section>
