@@ -5,53 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTG StudyHub</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
+  <header>
     <h1>BTG StudyHub</h1>
-    <h2>Your Ultimate Study Companion</h2>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#upload">Add Question Papers</a></li>
+        <li><a href="#help">Help Center</a></li>
+        <li><a href="https://t.me/Balu_TG8" target="_blank">Telegram</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!-- Countdown Section -->
+    <section id="home">
+      <h2>Days Left for Exams</h2>
+      <div id="countdown"></div>
+    </section>
 
-    <!-- Countdown Timer -->
-    <div id="timer"></div>
-
-    <!-- Add Question Paper -->
-    <div id="upload-form">
-      <h3>Add New Question Paper</h3>
-      <form>
-        <label for="subject">Select Subject:</label>
-        <select id="subject" name="subject">
+    <!-- Upload Section -->
+    <section id="upload">
+      <h2>Add Question Papers</h2>
+      <form id="upload-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="Enter title" required>
+        
+        <label for="subject">Subject:</label>
+        <select id="subject" required>
+          <option value="" disabled selected>Select Subject</option>
           <option value="Maths 1A">Maths 1A</option>
           <option value="Maths 1B">Maths 1B</option>
           <option value="Physics">Physics</option>
           <option value="Chemistry">Chemistry</option>
-          <option value="English">English</option>
           <option value="Telugu">Telugu</option>
+          <option value="English">English</option>
           <option value="Sanskrit">Sanskrit</option>
         </select>
-        <br>
-        <label for="title">Enter Title:</label>
-        <input type="text" id="title" name="title" placeholder="Question Paper Title">
-        <br>
+
         <label for="file">Upload File:</label>
-        <input type="file" id="file" name="file" accept=".pdf">
-        <br>
-        <button type="submit" id="upload-button">Upload</button>
+        <input type="file" id="file" accept=".pdf" required>
+        <button type="submit">Add Paper</button>
       </form>
-    </div>
+    </section>
 
-    <!-- Help Center -->
-    <div class="help-center">
-      <p>Need Help? Contact me on Telegram: <a href="https://t.me/Balu_TG8" target="_blank">@Balu_TG8</a></p>
-    </div>
+    <!-- Search and View Section -->
+    <section id="view">
+      <h2>Search Uploaded Question Papers</h2>
+      <input type="text" id="search-bar" placeholder="Search by title or subject...">
+      <ul id="uploaded-papers"></ul>
+    </section>
+  </main>
 
-    <!-- Uploaded Files -->
-    <div id="uploaded-files">
-      <h3>Uploaded Question Papers</h3>
-      <div id="file-list">
-        <!-- Files will be displayed dynamically -->
-      </div>
-    </div>
-  </div>
+  <footer>
+    <p>&copy; 2025 BTG StudyHub. All Rights Reserved.</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
