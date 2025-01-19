@@ -6,12 +6,17 @@ function updateCountdown() {
   const now = new Date();
   const diff = examDate - now;
 
+  if (diff <= 0) {
+    countdownElement.textContent = "Exams have started!";
+    return;
+  }
+
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  countdownElement.textContent = `Days: ${days}, Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`;
 }
 
 setInterval(updateCountdown, 1000);
@@ -25,8 +30,9 @@ const papers = JSON.parse(localStorage.getItem('papers')) || [];
 function displayPapers() {
   uploadedPapersList.innerHTML = papers.map((paper, index) => `
     <li>
-      <strong class="title">${paper.title}</strong>
-      <p class="subject">${paper.subject}</p>
+      <div>
+        <strong>${paper.title}</strong> - ${paper.subject}
+      </div>
       <a href="${paper.file}" target="_blank">View</a>
     </li>
   `).join('');
@@ -57,4 +63,13 @@ searchBar.addEventListener('input', () => {
     paper.subject.toLowerCase().includes(query)
   );
   uploadedPapersList.innerHTML = filteredPapers.map((paper) => `
-    <li
+    <li>
+      <div>
+        <strong>${paper.title}</strong> - ${paper.subject}
+      </div>
+      <a href="${paper.file}" target="_blank">View</a>
+    </li>
+  `).join('');
+});
+
+displayPapers();
