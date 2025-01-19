@@ -1,137 +1,68 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f8ff;
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTG StudyHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <h1>BTG StudyHub</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#upload">Add Papers</a></li>
+          <li><a href="#help">Help</a></li>
+          <li><a href="https://t.me/Balu_TG8" target="_blank">Telegram</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="countdown" class="countdown"></div>
+  </header>
 
-header {
-  background: linear-gradient(90deg, #2c3e50, #3498db);
-  color: white;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+  <main>
+    <!-- Search Bar -->
+    <section id="search-section">
+      <input type="text" id="search-bar" placeholder="Search question papers...">
+    </section>
 
-header .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
+    <!-- Add Question Papers -->
+    <section id="upload">
+      <h2>Add Question Papers</h2>
+      <form id="upload-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="Enter title" required>
+        
+        <label for="subject">Subject:</label>
+        <select id="subject" required>
+          <option value="" disabled selected>Select Subject</option>
+          <option value="Maths 1A">Maths 1A</option>
+          <option value="Maths 1B">Maths 1B</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Telugu">Telugu</option>
+          <option value="English">English</option>
+          <option value="Sanskrit">Sanskrit</option>
+        </select>
 
-header h1 {
-  margin: 0;
-}
+        <label for="file">Upload File:</label>
+        <input type="file" id="file" accept=".pdf" required>
+        <button type="submit">Add Paper</button>
+      </form>
+    </section>
 
-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
+    <!-- View Uploaded Papers -->
+    <section id="view">
+      <h2>Uploaded Question Papers</h2>
+      <ul id="uploaded-papers"></ul>
+    </section>
+  </main>
 
-header nav ul li {
-  margin: 0 15px;
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-header nav ul li a:hover {
-  color: #ecf0f1;
-}
-
-.countdown {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  padding: 5px;
-  background-color: #34495e;
-  color: #ecf0f1;
-}
-
-main {
-  padding: 20px;
-}
-
-section {
-  margin-bottom: 20px;
-}
-
-#search-section {
-  margin-bottom: 20px;
-}
-
-#search-bar {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form label {
-  font-weight: bold;
-}
-
-form input, form select, form button {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  font-size: 16px;
-}
-
-form button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-form button:hover {
-  background-color: #2980b9;
-}
-
-#uploaded-papers {
-  list-style: none;
-  padding: 0;
-}
-
-#uploaded-papers li {
-  background: #ecf0f1;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#uploaded-papers li a {
-  text-decoration: none;
-  color: #3498db;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-#uploaded-papers li a:hover {
-  color: #2980b9;
-}
-
-footer {
-  background-color: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-}
+  <footer>
+    <p>&copy; 2025 BTG StudyHub. All Rights Reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
