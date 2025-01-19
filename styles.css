@@ -1,70 +1,144 @@
-/* General Styling */
+/* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
   margin: 0;
   padding: 0;
-  background: #000;
-  color: #fff;
+  background-image: url("https://example.com/joystick-book-pattern.png"); /* Replace with your pattern image URL */
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-header {
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+h1, h2 {
   text-align: center;
-  padding: 2rem;
-  background: #333;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  background: #111;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-nav ul li {
-  margin: 0 1rem;
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
-nav ul li a {
-  text-decoration: none;
+/* Question Paper Cards */
+.paper {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.paper p {
+  margin: 5px 0;
+  color: #d1d1d1;
+}
+
+.paper button {
+  background: #007BFF;
   color: #fff;
-  padding: 0.5rem 1rem;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
   transition: background 0.3s ease;
 }
 
-nav ul li a:hover {
-  background: #444;
-}
-
-section {
-  margin: 2rem;
-  padding: 1.5rem;
-  background: #222;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-button {
-  background: #444;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-button:hover {
-  background: #555;
-}
-
-.hidden {
-  display: none;
+.paper button:hover {
+  background: #0056b3;
 }
 
 /* Countdown Timer */
-#timer span {
-  font-size: 1.5rem;
+#timer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #00FF00;
   font-weight: bold;
+  text-shadow: 0 0 5px #00FF00;
+}
+
+/* Help Center */
+.help-center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.help-center a {
+  color: #ff9800;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.help-center a:hover {
+  text-decoration: underline;
+}
+
+/* File Upload Form */
+#upload-form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#upload-form input,
+#upload-form select,
+#upload-form button {
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  outline: none;
+}
+
+#upload-form input[type="file"] {
+  padding: 5px;
+}
+
+#upload-form button {
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#upload-form button:hover {
+  background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }
