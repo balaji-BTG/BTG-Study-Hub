@@ -65,3 +65,98 @@
   <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTG StudyHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    .paper {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+    .paper button {
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .paper button:hover {
+      background: #0056b3;
+    }
+    .help-center {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .help-center a {
+      color: #007BFF;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .help-center a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BTG StudyHub</h1>
+    <h2>Uploaded Question Papers</h2>
+    <div id="papers-container"></div>
+    <div class="help-center">
+      <p>Need help? Contact us on <a href="https://t.me/BaluTeluguGamer_yt" target="_blank">Telegram</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "http://localhost:5000"; // Backend URL
+
+    // Fetch Question Papers
+    async function fetchQuestionPapers() {
+      const response = await fetch(`${API_URL}/papers`);
+      const papers = await response.json();
+
+      const container = document.getElementById("papers-container");
+      container.innerHTML = "";
+
+      papers.forEach((paper) => {
+        const paperDiv = document.createElement("div");
+        paperDiv.classList.add("paper");
+        paperDiv.innerHTML = `
+          <p><strong>Subject:</strong> ${paper.subject}</p>
+          <p><strong>Year:</strong> ${paper.year}</p>
+          <a href="${paper.filePath}" target="_blank"><button>View</button></a>
+        `;
+        container.appendChild(paperDiv);
+      });
+    }
+
+    // Initialize
+    fetchQuestionPapers();
+  </script>
+</body>
+</html>
