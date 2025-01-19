@@ -1,135 +1,70 @@
-// script.js
-
-// Days Counter
-const examDate = new Date("March 5, 2025"); // Set your exam date
-const today = new Date();
-const daysLeft = Math.ceil((examDate - today) / (1000 * 60 * 60 * 24));
-
-document.getElementById("days-counter").textContent = `Days Left for Exam: ${daysLeft}`;
-
-// QR Code Section
-const qrContainer = document.getElementById("qr-container");
-
-// Example QR Codes
-const qrData = [
-  { text: "Important Papers", link: "https://example.com/papers" },
-  { text: "Q&A Resources", link: "https://example.com/qna" },
-];
-
-qrData.forEach((qr) => {
-  const qrCode = document.createElement("div");
-  qrCode.innerHTML = `
-    <p>${qr.text}</p>
-    <a href="${qr.link}" target="_blank">Visit Link</a>
-  `;
-  qrContainer.appendChild(qrCode);
-});
-// script.js
-
-// Sample Question Papers (You can replace or add more dynamically)
-let questionPapers = [
-  { subject: "Maths 1A", year: "2023", link: "https://example.com/maths1a-2023" },
-  { subject: "Physics", year: "2022", link: "https://example.com/physics-2022" }
-];
-
-// Function to Display Question Papers
-function displayQuestionPapers() {
-  const papersContainer = document.getElementById("papers-container");
-  papersContainer.innerHTML = ""; // Clear existing content
-
-  questionPapers.forEach((paper, index) => {
-    const paperDiv = document.createElement("div");
-    paperDiv.innerHTML = `
-      <p><strong>Subject:</strong> ${paper.subject}</p>
-      <p><strong>Year:</strong> ${paper.year}</p>
-      <a href="${paper.link}" target="_blank">Download Paper</a>
-      <button onclick="deletePaper(${index})">❌ Delete</button>
-    `;
-    papersContainer.appendChild(paperDiv);
-  });
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
 }
 
-// Function to Add a New Question Paper
-function addQuestionPaper() {
-  const subject = prompt("Enter Subject:");
-  const year = prompt("Enter Year:");
-  const link = prompt("Enter Download Link:");
-
-  if (subject && year && link) {
-    questionPapers.push({ subject, year, link });
-    displayQuestionPapers(); // Refresh the list
-  } else {
-    alert("All fields are required!");
-  }
+header {
+  text-align: center;
+  padding: 2rem;
+  background: #333;
 }
 
-// Function to Delete a Question Paper
-function deletePaper(index) {
-  if (confirm("Are you sure you want to delete this paper?")) {
-    questionPapers.splice(index, 1); // Remove the selected paper
-    displayQuestionPapers(); // Refresh the list
-  }
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: #111;
 }
 
-// Event Listener for Add Button
-document.getElementById("add-paper-btn").addEventListener("click", addQuestionPaper);
-
-// Initial Display of Question Papers
-displayQuestionPapers();
-// script.js
-
-let questionPapers = [];
-
-// Function to Display Question Papers
-function displayQuestionPapers() {
-  const papersContainer = document.getElementById("papers-container");
-  papersContainer.innerHTML = ""; // Clear existing content
-
-  questionPapers.forEach((paper) => {
-    const paperDiv = document.createElement("div");
-    paperDiv.innerHTML = `
-      <p><strong>Subject:</strong> ${paper.subject}</p>
-      <p><strong>Year:</strong> ${paper.year}</p>
-      <a href="${paper.file}" target="_blank">Download Paper</a>
-    `;
-    papersContainer.appendChild(paperDiv);
-  });
+nav ul li {
+  margin: 0 1rem;
 }
 
-// Show Add Paper Form
-document.getElementById("add-paper-btn").addEventListener("click", () => {
-  document.getElementById("add-paper-form").classList.remove("hidden");
-});
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease;
+}
 
-// Cancel Add Paper
-document.getElementById("cancel-btn").addEventListener("click", () => {
-  document.getElementById("add-paper-form").classList.add("hidden");
-});
+nav ul li a:hover {
+  background: #444;
+}
 
-// Handle File Upload
-document.getElementById("uploadForm").addEventListener("submit", (event) => {
-  event.preventDefault();
+section {
+  margin: 2rem;
+  padding: 1.5rem;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
 
-  const subject = document.getElementById("subject").value;
-  const year = document.getElementById("year").value;
-  const fileInput = document.getElementById("file");
-  const file = fileInput.files[0];
+button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
 
-  if (subject && year && file) {
-    // Simulate File Upload (Use a backend to handle this properly)
-    const fileURL = URL.createObjectURL(file);
+button:hover {
+  background: #555;
+}
 
-    // Add to Question Papers List
-    questionPapers.push({ subject, year, file: fileURL });
+.hidden {
+  display: none;
+}
 
-    // Refresh Papers and Hide Form
-    displayQuestionPapers();
-    document.getElementById("add-paper-form").classList.add("hidden");
-    fileInput.value = ""; // Reset file input
-  } else {
-    alert("All fields are required!");
-  }
-});
-
-// Initial Display
-displayQuestionPapers();
+/* Countdown Timer */
+#timer span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
