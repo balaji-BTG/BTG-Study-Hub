@@ -4,124 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTG StudyHub</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #f0f0f0;
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #1e1e1e;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #fff;
-    }
-    .paper {
-      border: 1px solid #333;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      background: #2a2a2a;
-    }
-    .paper button {
-      background: #007BFF;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .paper button:hover {
-      background: #0056b3;
-    }
-    .help-center {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .help-center a {
-      color: #007BFF;
-      text-decoration: none;
-      font-size: 16px;
-    }
-    .help-center a:hover {
-      text-decoration: underline;
-    }
-    #timer {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 18px;
-      color: #00FF00;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
     <h1>BTG StudyHub</h1>
-    <h2>Uploaded Question Papers</h2>
-    <div id="papers-container"></div>
+    <h2>Your Ultimate Study Companion</h2>
+
+    <!-- Countdown Timer -->
     <div id="timer"></div>
+
+    <!-- Add Question Paper -->
+    <div id="upload-form">
+      <h3>Add New Question Paper</h3>
+      <form>
+        <label for="subject">Select Subject:</label>
+        <select id="subject" name="subject">
+          <option value="Maths 1A">Maths 1A</option>
+          <option value="Maths 1B">Maths 1B</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="English">English</option>
+          <option value="Telugu">Telugu</option>
+          <option value="Sanskrit">Sanskrit</option>
+        </select>
+        <br>
+        <label for="title">Enter Title:</label>
+        <input type="text" id="title" name="title" placeholder="Question Paper Title">
+        <br>
+        <label for="file">Upload File:</label>
+        <input type="file" id="file" name="file" accept=".pdf">
+        <br>
+        <button type="submit" id="upload-button">Upload</button>
+      </form>
+    </div>
+
+    <!-- Help Center -->
     <div class="help-center">
-      <p>Need help? Contact us on <a href="https://t.me/BaluTeluguGamer_yt" target="_blank">Telegram</a>.</p>
+      <p>Need Help? Contact me on Telegram: <a href="https://t.me/Balu_TG8" target="_blank">@Balu_TG8</a></p>
+    </div>
+
+    <!-- Uploaded Files -->
+    <div id="uploaded-files">
+      <h3>Uploaded Question Papers</h3>
+      <div id="file-list">
+        <!-- Files will be displayed dynamically -->
+      </div>
     </div>
   </div>
-
-  <script>
-    const API_URL = "http://localhost:5000"; // Backend URL
-
-    // Countdown Timer
-    const examDate = new Date("March 5, 2025 00:00:00").getTime();
-    const timerElement = document.getElementById("timer");
-
-    function updateTimer() {
-      const now = new Date().getTime();
-      const distance = examDate - now;
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      timerElement.innerHTML = `Exam Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-      if (distance < 0) {
-        clearInterval(timerInterval);
-        timerElement.innerHTML = "Exams Started!";
-      }
-    }
-
-    const timerInterval = setInterval(updateTimer, 1000);
-
-    // Fetch Question Papers
-    async function fetchQuestionPapers() {
-      const response = await fetch(`${API_URL}/papers`);
-      const papers = await response.json();
-
-      const container = document.getElementById("papers-container");
-      container.innerHTML = "";
-
-      papers.forEach((paper) => {
-        const paperDiv = document.createElement("div");
-        paperDiv.classList.add("paper");
-        paperDiv.innerHTML = `
-          <p><strong>Subject:</strong> ${paper.subject}</p>
-          <p><strong>Year:</strong> ${paper.year}</p>
-          <a href="${paper.filePath}" target="_blank"><button>View</button></a>
-        `;
-        container.appendChild(paperDiv);
-      });
-    }
-
-    // Initialize
-    fetchQuestionPapers();
-  </script>
 </body>
 </html>
-<link rel="stylesheet" href="styles.css">
