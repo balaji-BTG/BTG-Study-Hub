@@ -76,3 +76,60 @@ document.getElementById("add-paper-btn").addEventListener("click", addQuestionPa
 
 // Initial Display of Question Papers
 displayQuestionPapers();
+// script.js
+
+let questionPapers = [];
+
+// Function to Display Question Papers
+function displayQuestionPapers() {
+  const papersContainer = document.getElementById("papers-container");
+  papersContainer.innerHTML = ""; // Clear existing content
+
+  questionPapers.forEach((paper) => {
+    const paperDiv = document.createElement("div");
+    paperDiv.innerHTML = `
+      <p><strong>Subject:</strong> ${paper.subject}</p>
+      <p><strong>Year:</strong> ${paper.year}</p>
+      <a href="${paper.file}" target="_blank">Download Paper</a>
+    `;
+    papersContainer.appendChild(paperDiv);
+  });
+}
+
+// Show Add Paper Form
+document.getElementById("add-paper-btn").addEventListener("click", () => {
+  document.getElementById("add-paper-form").classList.remove("hidden");
+});
+
+// Cancel Add Paper
+document.getElementById("cancel-btn").addEventListener("click", () => {
+  document.getElementById("add-paper-form").classList.add("hidden");
+});
+
+// Handle File Upload
+document.getElementById("uploadForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const subject = document.getElementById("subject").value;
+  const year = document.getElementById("year").value;
+  const fileInput = document.getElementById("file");
+  const file = fileInput.files[0];
+
+  if (subject && year && file) {
+    // Simulate File Upload (Use a backend to handle this properly)
+    const fileURL = URL.createObjectURL(file);
+
+    // Add to Question Papers List
+    questionPapers.push({ subject, year, file: fileURL });
+
+    // Refresh Papers and Hide Form
+    displayQuestionPapers();
+    document.getElementById("add-paper-form").classList.add("hidden");
+    fileInput.value = ""; // Reset file input
+  } else {
+    alert("All fields are required!");
+  }
+});
+
+// Initial Display
+displayQuestionPapers();
