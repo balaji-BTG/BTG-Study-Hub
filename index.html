@@ -1,114 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Bill Bros - Login</title>
-    
-    <style>
-        /* Remove default margin & padding */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Background</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking the CSS file -->
 
-        /* Video Background Container */
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Login Form Container */
-        .login-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-
-        .login-container h2 {
-            margin-bottom: 50px;
-            
-        }
-
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .login-btn {
-            width: 69%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .login-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Video Background -->
-    <div class="video-container">
-        <video autoplay unmuted loop id="video-background">
-            <source src="vv.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+  <!-- Video Background -->
+  <div class="video-container">
+    <video autoplay loop id="video-background">
+      <source src="vv.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-    <!-- Login Form -->
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter your name" required>
-            <input type="password" id="password" placeholder="Enter your password" required>
-            <button type="submit" class="login-btn">Login</button>
-        </form>
-    </div>
+  <!-- Centered Text with Clickable Redirect -->
+  <div class="heading">
+    <h1 onclick="redirect()">BIGG BULL BROS</h1>
+    <h2 onclick="redirect()"></h2>
+  </div>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from submitting traditionally
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-
-            if (username && password) {
-                // Redirect to another page (e.g., dashboard.html)
-                window.location.href = "stocks.html"; // Modify this to your actual next page
-            } else {
-                alert("Please enter both username and password.");
-            }
-        });
-    </script>
+  <script src="script.js"></script> <!-- Linking the JavaScript file -->
 
 </body>
 </html>
